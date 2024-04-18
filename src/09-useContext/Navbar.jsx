@@ -1,14 +1,32 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 export const Navbar = () => {
   return (
-    <div style={{ display: 'flex' }}>
-        <Link to="/">Home</Link>
-        <span>&nbsp;|&nbsp;</span>
-        <Link to="/about">About</Link>
-        <span>&nbsp;|&nbsp;</span>
-        <Link to="/login">Login</Link>
-    </div>
+    <nav className="navbar navbar-expand-lg bg-dark">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">useContext</Link>
+
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav">
+            <NavLink
+              className={ ({ isActive }) => `nav-link ${ isActive ? 'active' : ''}`}
+              to="/">
+              Home
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `nav-link ${ isActive ? 'active' : ''}`}
+              to="/about">
+              About
+            </NavLink>
+            <NavLink
+              className={({ isActive }) => `nav-link ${ isActive ? 'active' : ''}`}
+              to="/login">
+              Login
+            </NavLink>
+          </ul>
+        </div>
+      </div>
+    </nav>
   )
 }
